@@ -1,0 +1,24 @@
+{
+  "name": "solana-helpers",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "format": "prettier --write \"src/**/*.ts\""
+  },
+  "author": "Vladislav Sablevsky <sablevsky@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@metaplex-foundation/js": "^0.13.1",
+    "@solana/web3.js": "^1.50.0",
+    "dotenv": "^16.0.1",
+    "ramda": "^0.28.0",
+    "ramda-adjunct": "^3.2.0"
+  },
+  "devDependencies": {
+    "@types/ramda": "^0.28.15",
+    "prettier": "^2.7.1",
+    "ts-node": "^10.9.1"
+  }
+}
