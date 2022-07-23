@@ -1,7 +1,7 @@
 import 'dotenv/config'
 
 import { CONSOLE_COLORS } from './constants'
-import { getMintListByCreator } from './helpers/getMintListByCreator'
+import { getMintListByCreator } from './helpers'
 
 ;(async () => {
   try {
