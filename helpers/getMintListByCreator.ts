@@ -3,7 +3,7 @@ import { Connection, PublicKey } from '@solana/web3.js'
 import { allIdentical, isNonEmptyString } from 'ramda-adjunct'
 import { compose, filter, prop, propOr, map, not } from 'ramda'
 
-import { RPC_URL } from '../constants'
+import { CONSOLE_COLORS, RPC_URL } from '../constants'
 
 type GetMintListByCreator = (params: {
   creatorAddress: string
@@ -25,7 +25,10 @@ export const getMintListByCreator: GetMintListByCreator = async ({
     .run()
 
   if (isSymbolDeviation(nfts)) {
-    console.warn("'NFTs have different symbols. MintList may be unsafe")
+    console.warn(
+      CONSOLE_COLORS.YELLOW,
+      'NFTs have different symbols. MintList may be unsafe'
+    )
   }
 
   return mintAddresses(nfts)
