@@ -1,7 +1,7 @@
 import { Metaplex } from '@metaplex-foundation/js'
 import { Connection, PublicKey } from '@solana/web3.js'
 import { allIdentical, isNonEmptyString } from 'ramda-adjunct'
-import { compose, filter, prop, propOr, map, not } from 'ramda'
+import { compose, filter, prop, propOr, map, not, uniq } from 'ramda'
 
 import { CONSOLE_COLORS, RPC_URL } from '../constants'
 
@@ -27,7 +27,9 @@ export const getMintListByCreator: GetMintListByCreator = async ({
   if (isSymbolDeviation(nfts)) {
     console.warn(
       CONSOLE_COLORS.YELLOW,
-      'NFTs have different symbols. MintList may be unsafe'
+      `NFTs have different symbols. MintList may be unsafe.\nFound symbols: ${getUniqueSymbols(
+        nfts
+      )}`
     )
   }
 
@@ -41,4 +43,6 @@ const mintAddresses = compose<any, string[], string[]>(
   map<any, any>(compose(toBase58, prop('mintAddress')))
 )
 
-const isSymbolDeviation = compose(not, allIdentical, map(propOr('', 'symbol')))
+const getUniqueSymbols = compose(uniq, map(prop('symbol')))
+
+const isSymbolDeviation = compose(not, allIdentical, getUniqueSymbols)
