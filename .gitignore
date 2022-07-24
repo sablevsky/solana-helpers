@@ -5,3 +5,4 @@ node_modules
 /src/__tests__/keys/*
 yarn.lock
 .env
+output.json
