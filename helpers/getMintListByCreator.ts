@@ -1,7 +1,7 @@
 import { Metaplex } from '@metaplex-foundation/js'
 import { Connection, PublicKey } from '@solana/web3.js'
 import { allIdentical, isNonEmptyString } from 'ramda-adjunct'
-import { compose, filter, prop, propOr, map, not, uniq } from 'ramda'
+import { compose, filter, prop, map, not, uniq } from 'ramda'
 
 import { CONSOLE_COLORS, RPC_URL } from '../constants'
 
