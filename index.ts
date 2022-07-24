@@ -1,7 +1,6 @@
 import 'dotenv/config'
 
-import { CONSOLE_COLORS } from './constants'
-import { getMintListByCreator } from './helpers'
+import { getMintListByCreator, writeJson } from './helpers'
 
 ;(async () => {
   try {
@@ -11,8 +10,7 @@ import { getMintListByCreator } from './helpers'
       creatorsListPosition: 3,
     })
 
-    console.log(CONSOLE_COLORS.CYAN, JSON.stringify(mints, null, 2))
-    console.log(CONSOLE_COLORS.RED, mints?.length)
+    await writeJson({ input: mints })
   } catch (error) {
     console.error(error)
   }
