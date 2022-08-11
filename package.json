@@ -11,12 +11,15 @@
   "license": "ISC",
   "dependencies": {
     "@metaplex-foundation/js": "^0.13.1",
+    "@solana/spl-token": "^0.2.0",
     "@solana/web3.js": "^1.50.0",
+    "bn.js": "^5.2.1",
     "dotenv": "^16.0.1",
     "ramda": "^0.28.0",
     "ramda-adjunct": "^3.2.0"
   },
   "devDependencies": {
+    "@types/bn.js": "^5.1.0",
     "@types/ramda": "^0.28.15",
     "prettier": "^2.7.1",
     "ts-node": "^10.9.1"
