@@ -1,6 +1,14 @@
 import { BANKSEA_API_BASE, BANKSEA_API_KEY, CONSOLE_COLORS } from '../constants'
 
-type GetBankseaCollections = () => Promise<string[] | null>
+type GetBankseaCollections = () => Promise<
+  | {
+      collection: string
+      name: string
+      verified: string
+      symbol: string
+    }[]
+  | null
+>
 
 export const getBankseaCollections: GetBankseaCollections = async () => {
   try {
