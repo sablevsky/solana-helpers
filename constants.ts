@@ -1,10 +1,13 @@
 import { clusterApiUrl, PublicKey } from '@solana/web3.js'
+import 'dotenv/config'
 
-export const RPC_URL = process.env.RPC_URL || clusterApiUrl('mainnet-beta')
+export const RPC_URL = process.env.RPC_URL ?? clusterApiUrl('mainnet-beta')
+
+export const WALLET_PRIVATE_KEY = process.env.WALLET_PRIVATE_KEY ?? ''
 
 export const BANKSEA_API_BASE = 'https://oracle-api.banksea.finance'
 
-export const BANKSEA_API_KEY = process.env.BANKSEA_API_KEY || ''
+export const BANKSEA_API_KEY = process.env.BANKSEA_API_KEY ?? ''
 
 export const TOKEN_PROGRAM_ID = new PublicKey(
   'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA'
