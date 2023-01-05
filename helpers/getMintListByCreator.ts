@@ -24,16 +24,24 @@ export const getMintListByCreator: GetMintListByCreator = async ({
     })
     .run()
 
-  if (isSymbolDeviation(nfts)) {
+  const filteredVerified = nfts.filter(({ creators }) => {
+    const targetCreator = creators[creatorsListPosition - 1]
+    return (
+      targetCreator?.verified &&
+      targetCreator?.address.toBase58() === creatorAddress
+    )
+  })
+
+  if (isSymbolDeviation(filteredVerified)) {
     console.warn(
       CONSOLE_COLORS.YELLOW,
       `NFTs have different symbols. MintList may be unsafe.\nFound symbols: ${getUniqueSymbols(
-        nfts
+        filteredVerified
       )}`
     )
   }
 
-  return mintAddresses(nfts)
+  return mintAddresses(filteredVerified)
 }
 
 const toBase58 = (publicKey: any): string => publicKey?.toBase58() || ''
