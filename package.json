@@ -12,17 +12,17 @@
   "dependencies": {
     "@metaplex-foundation/js": "^0.19.3",
     "@solana/spl-token": "^0.3.7",
-    "@solana/web3.js": "^1.50.0",
+    "@solana/web3.js": "^1.76.0",
     "bn.js": "^5.2.1",
     "bs58": "^5.0.0",
-    "dotenv": "^16.0.1",
-    "ramda": "^0.28.0",
-    "ramda-adjunct": "^3.2.0"
+    "dotenv": "^16.0.3",
+    "ramda": "^0.29.0",
+    "ramda-adjunct": "^4.0.0"
   },
   "devDependencies": {
-    "@types/bn.js": "^5.1.0",
-    "@types/ramda": "^0.28.15",
-    "prettier": "^2.7.1",
+    "@types/bn.js": "^5.1.1",
+    "@types/ramda": "^0.29.1",
+    "prettier": "^2.8.8",
     "ts-node": "^10.9.1"
   }
 }
