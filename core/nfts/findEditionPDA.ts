@@ -5,7 +5,7 @@ type FindEditionPDA = (params: {
 }) => Promise<PublicKey>
 
 export const findEditionPDA: FindEditionPDA = async ({ tokenMintAddress }) => {
-  const [ATA] = await PublicKey.findProgramAddress(
+  const [ATA] = PublicKey.findProgramAddressSync(
     [
       Buffer.from(METADATA_PREFIX),
       METADATA_PROGRAM_PUBKEY.toBuffer(),

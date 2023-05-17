@@ -10,7 +10,7 @@
   "author": "Vladislav Sablevsky <sablevsky@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "@metaplex-foundation/js": "^0.13.1",
+    "@metaplex-foundation/js": "^0.19.3",
     "@solana/spl-token": "^0.2.0",
     "@solana/web3.js": "^1.50.0",
     "bn.js": "^5.2.1",

@@ -17,12 +17,10 @@ export const getMintListByCreator: GetMintListByCreator = async ({
   const connection = new Connection(RPC_URL)
   const metaplex = new Metaplex(connection)
 
-  const nfts = await metaplex
-    .nfts()
-    .findAllByCreator(new PublicKey(creatorAddress), {
-      position: creatorsListPosition,
-    })
-    .run()
+  const nfts = await metaplex.nfts().findAllByCreator({
+    creator: new PublicKey(creatorAddress),
+    position: creatorsListPosition,
+  })
 
   const filteredVerified = nfts.filter(({ creators }) => {
     const targetCreator = creators[creatorsListPosition - 1]
