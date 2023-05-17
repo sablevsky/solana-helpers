@@ -1,17 +1,7 @@
-import 'dotenv/config'
-
-import { getMintListByCreator, writeJson } from './helpers'
-
 ;(async () => {
   try {
-    //? Code example
-    const mints = await getMintListByCreator({
-      creatorAddress: 'EYxVGJfw32cDgyVQJLegUESAwVjjyCdWz841bSWGjgc6',
-      creatorsListPosition: 3,
-    })
-
-    await writeJson({ input: mints })
+    //? Your code here
   } catch (error) {
-    console.error(error)
+    // console.error(CONSOLE_COLORS.RED, error)
   }
 })()

@@ -1,20 +1,22 @@
 import { clusterApiUrl, PublicKey } from '@solana/web3.js'
 import 'dotenv/config'
 
+export const PUBKEY_PLACEHOLDER = '11111111111111111111111111111111'
+
 export const RPC_URL = process.env.RPC_URL ?? clusterApiUrl('mainnet-beta')
 
 export const WALLET_PRIVATE_KEY = process.env.WALLET_PRIVATE_KEY ?? ''
 
-export const BANKSEA_API_BASE = 'https://oracle-api.banksea.finance'
+export const BANKSEA_API_BASE = process.env.BANKSEA_API_BASE ?? ''
 
 export const BANKSEA_API_KEY = process.env.BANKSEA_API_KEY ?? ''
 
 export const TOKEN_PROGRAM_ID = new PublicKey(
-  'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA'
+  process.env.TOKEN_PROGRAM_ID || PUBKEY_PLACEHOLDER
 )
 
 export const SPL_ASSOCIATED_TOKEN_ACCOUNT_PROGRAM_ID = new PublicKey(
-  'ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL'
+  process.env.SPL_ASSOCIATED_TOKEN_ACCOUNT_PROGRAM_ID ?? PUBKEY_PLACEHOLDER
 )
 
 export enum CONSOLE_COLORS {

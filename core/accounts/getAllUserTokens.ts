@@ -4,7 +4,7 @@ import BN from 'bn.js'
 
 import { RPC_URL, TOKEN_PROGRAM_ID } from '../constants'
 
-interface TokenView {
+export interface TokenView {
   tokenAccountPubkey: string
   mint: string
   owner: string
