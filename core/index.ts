@@ -4,6 +4,8 @@ import nfts from './nfts'
 import other from './other'
 import * as constants from './constants'
 
+import * as token from './token'
+
 export { accounts, common, nfts, other, constants }
 
 export default {
@@ -12,4 +14,5 @@ export default {
   nfts,
   other,
   constants,
+  token,
 }
