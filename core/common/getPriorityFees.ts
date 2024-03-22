@@ -37,8 +37,6 @@ export const getPriorityFees = async (accountKeys: string[]) => {
 
     const data = (await response.json()) as PriorityFeesResponse
 
-    console.log(JSON.stringify(data, null, 2))
-
     return data.result.priorityFeeLevels
   } catch (error) {
     console.error('Error calculating priority fees:', error)
