@@ -1,10 +1,5 @@
 import { createUmi } from '@metaplex-foundation/umi-bundle-defaults'
-import { getPriorityFees } from '../common/getPriorityFees'
-import {
-  METADATA_PROGRAM_PUBKEY,
-  RPC_URL,
-  WALLET_PRIVATE_KEY,
-} from '../constants'
+import { RPC_URL, WALLET_PRIVATE_KEY } from '../constants'
 import {
   CreateMetadataAccountV3InstructionAccounts,
   CreateMetadataAccountV3InstructionArgs,
@@ -23,15 +18,17 @@ export type CreateMetadataAccountV3Args =
     CreateMetadataAccountV3InstructionArgs
 
 type CreateMetaplexMetadataAccountV3Props = {
-  mint: string
-  data: DataV2Args
-  isMutable: boolean
+  args: {
+    mint: string
+    data: DataV2Args
+    isMutable: boolean
+  }
+  priorityFee?: number
 }
 
 export const createMetaplexMetadataAccountV3 = async ({
-  mint,
-  data,
-  isMutable,
+  args,
+  priorityFee,
 }: CreateMetaplexMetadataAccountV3Props) => {
   const umi = createUmi(RPC_URL)
 
@@ -44,21 +41,15 @@ export const createMetaplexMetadataAccountV3 = async ({
   umi.identity = signer
   umi.payer = signer
 
-  const { veryHigh: veryHighPriorityFee } = await getPriorityFees([
-    METADATA_PROGRAM_PUBKEY?.toBase58(),
-  ])
-
-  const microLamports = Math.trunc(veryHighPriorityFee)
-
   const transaction = createMetadataAccountV3(umi, {
-    mint: fromWeb3JsPublicKey(new PublicKey(mint)),
+    mint: fromWeb3JsPublicKey(new PublicKey(args.mint)),
     mintAuthority: signer,
     payer: signer,
     updateAuthority: signer.publicKey,
-    data: data,
-    isMutable: isMutable,
+    data: args.data,
+    isMutable: args.isMutable,
     collectionDetails: null,
-  }).add(setComputeUnitPrice(umi, { microLamports }))
+  }).add(setComputeUnitPrice(umi, { microLamports: priorityFee || 0 }))
 
   const { signature: transactionSignature } = await transaction.sendAndConfirm(
     umi
