@@ -19,6 +19,12 @@ export const SPL_ASSOCIATED_TOKEN_ACCOUNT_PROGRAM_ID = new PublicKey(
   process.env.SPL_ASSOCIATED_TOKEN_ACCOUNT_PROGRAM_ID ?? PUBKEY_PLACEHOLDER
 )
 
+export const METADATA_PREFIX = 'metadata'
+export const EDITION_PREFIX = 'edition'
+export const METADATA_PROGRAM_PUBKEY = new PublicKey(
+  process.env.METADATA_PROGRAM_PUBKEY ?? PUBKEY_PLACEHOLDER
+)
+
 export enum CONSOLE_COLORS {
   RED = '\x1b[31m%s\x1b[0m',
   GREEN = '\x1b[32m%s\x1b[0m',
