@@ -28,10 +28,11 @@
   },
   "devDependencies": {
     "@types/bip39": "^3.0.0",
-    "@types/crypto-js": "^4.1.1",
     "@types/bn.js": "^5.1.1",
+    "@types/crypto-js": "^4.1.1",
     "@types/ramda": "^0.29.1",
     "prettier": "^2.8.8",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "typescript": "^5.4.5"
   }
 }
